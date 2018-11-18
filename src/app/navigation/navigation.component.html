@@ -1,0 +1,41 @@
+<!--
+mat-sidenav can be placed using: position="end" , "start"
+mat-sidenav can appear over main content(mode="over"),or push main content (mode="push")
+mat-sidenav  can be opned by seting [opened] property to  true
+-->
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav"
+      [ngClass] ="{hidden : !(isHandset$ | async) }"
+      fixedInViewport="false"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary">Ems</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#" routerLink="/employees/new" >Manage Employee</a>
+      <a mat-list-item href="#" routerLink="">Signin</a>
+      <a mat-list-item href="#" routerLink="">SignUp</a>
+      
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Ems</span>
+      <span class="space-filler"></span>
+      <a  href="#" routerLink="/employees" >Manage Employee</a>
+      <a href="#" routerLink="">Sign In</a>
+      <a href="#" routerLink="">Sign Up</a>
+      
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <ng-content>  </ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
