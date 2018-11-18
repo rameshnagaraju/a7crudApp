@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -18,6 +18,7 @@ import { EmployeeService } from './employee.service';
     CommonModule,
     MaterialModule,
     FormsModule,
+    ReactiveFormsModule,
     EmployeesRoutingModule
   ],
   providers:[EmployeeService]

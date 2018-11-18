@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { NgModule,Component, OnInit } from '@angular/core';
 import {Employee} from '../employee.model';
 import {EmployeeService} from '../employee.service';
 
@@ -15,15 +15,17 @@ export class EmployeeComponent implements OnInit {
   }
 
   departments = [
-    { id: 3, value: 'Dep 1' },
-    { id: 2, value: 'Dep 2' },
-    { id: 3, value: 'Dep 3' }];
+    { id: 1, value: 'HR' },
+    { id: 2, value: 'ADMN' },
+    { id: 3, value: 'ENGG' }];
 
   ngOnInit() {
   }
 
   onClear() {
+    // This resets all the formcontrol to NULL
     this.service.form.reset();
+    // This routine sets all the formcontrol to default values.
     this.service.initializeFormGroup();
   }
 
